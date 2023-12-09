@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server IP Address</title>
+</head>
+<body>
+    <script>
+        // Function to get the client IP address
+        function getClientIP() {
+          // Use httpbin to get the client's IP address
+          fetch('https://httpbin.org/ip')
+            .then(response => response.json())
+            .then(data => {
+              // Extract and display the client's IP address
+              var ipv4 = data.origin;
+              alert('Client IP Address: ' + ipv4);
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        }
+      
+        // Call the function when the page loads
+        window.onload = getClientIP;
+      </script>
+</body>
+</html
