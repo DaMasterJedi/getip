@@ -6,24 +6,27 @@
   <title>Server IP Address</title>
 </head>
 <body>
-    <script>
-        // Function to get the client IP address
-        function getClientIP() {
-          // Use httpbin to get the client's IP address
-          fetch('https://httpbin.org/ip')
-            .then(response => response.json())
-            .then(data => {
-              // Extract and display the client's IP address
-              var ipv4 = data.origin;
-              alert('Client IP Address: ' + ipv4);
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-        }
-      
-        // Call the function when the page loads
-        window.onload = getClientIP;
-      </script>
+
+<script>
+  // Function to get the server IP address
+  function getServerIP() {
+    // Use fetch to get the server's IP address from the PHP file
+    fetch('getServerIP.php')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display the server's IP address
+        var serverIP = data.ip;
+        alert('Server IP Address: ' + serverIP);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  // Call the function when the page loads
+  window.onload = getServerIP;
+</script>
+
 </body>
+</html>
 </html
